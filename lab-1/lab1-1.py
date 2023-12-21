@@ -17,7 +17,9 @@ buttonPressed = 0
 isPressed = False
 rgbVal = [0,0,0]
 
-while True: # Run forever
+# Loop
+
+while True:
     changeColor(rgbVal)
     if GPIO.input(17) == GPIO.HIGH:
         isPressed = True
