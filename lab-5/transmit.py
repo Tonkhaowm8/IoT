@@ -1,6 +1,6 @@
 import time
 from SX127x.LoRa import *
-from SX127x.board_config import Board
+from SX127x.board_config import BOARD
 
 BOARD.setup()
 BOARD.reset()
@@ -32,7 +32,7 @@ class mylora(LoRa):
             self.val = self.val + 1
             print("Send to LoRa 2: " + info)
 
-            word1 = list(into)
+            word1 = list(info)
             word2 = []
             
             for f in word1: word2.append(ord(f))
@@ -41,7 +41,7 @@ class mylora(LoRa):
             self.set_mode(MODE.TX)
             time.sleep(3)
             self.reset_ptr_rx()
-            self.set_mode(MODE.RXCOUNT)
+            self.set_mode(MODE.RXCONT)
             time.sleep(10)
 
 lora = mylora(verbose = False)
@@ -49,7 +49,7 @@ lora = mylora(verbose = False)
 lora.set_pa_config(pa_select = 1, max_power = 21, output_power = 15)
 lora.set_freq(433.2)
 lora.set_bw(BW.BW250)
-lora.set_coding_rate(CODE_RATE.CR4_8)
+lora.set_coding_rate(CODING_RATE.CR4_8)
 lora.set_spreading_factor(7)
 lora.set_rx_crc(True)
 lora.set_low_data_rate_optim(True)
