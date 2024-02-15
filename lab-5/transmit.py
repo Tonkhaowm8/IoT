@@ -1,6 +1,6 @@
 import time
 from SX127x.LoRa import *
-from SX127x.board_config impoty Board
+from SX127x.board_config import Board
 
 BOARD.setup()
 BOARD.reset()
